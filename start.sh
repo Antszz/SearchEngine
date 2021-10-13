@@ -20,9 +20,9 @@ hdfs dfs -put static/corpus/* /input
 echo "******************** Calculating inverted index ********************"
 hadoop jar $HADOOP_HOME/hadoop-streaming.jar \
         -file mapper.py \
-        -mapper "python mapper.py" \
+        -mapper "python3 mapper.py" \
         -file reducer.py  \
-        -reducer "python reducer.py" \
+        -reducer "python3 reducer.py" \
         -input /input/ \
         -output /output
 
@@ -44,9 +44,9 @@ hdfs dfs -put pagerank.txt /input2
 echo "******************** Calculating pagerank ********************"
 hadoop jar $HADOOP_HOME/hadoop-streaming.jar \
         -file pagerank_mapper.py \
-        -mapper "python pagerank_mapper.py" \
+        -mapper "python3 pagerank_mapper.py" \
         -file pagerank_reducer.py  \
-        -reducer "python pagerank_reducer.py" \
+        -reducer "python3 pagerank_reducer.py" \
         -input /input2/ \
         -output /output2
 
@@ -62,7 +62,7 @@ hadoop jar $HADOOP_HOME/hadoop-streaming.jar \
 echo "******************** Calculating pagerank ********************"
 hadoop jar $HADOOP_HOME/hadoop-streaming.jar \
         -file rank_map.py \
-        -mapper "python rank_map.py" \
+        -mapper "python3 rank_map.py" \
         -input /result2/part-00000 \
         -output /output3
 
