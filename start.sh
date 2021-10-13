@@ -18,7 +18,7 @@ hdfs dfs -mkdir /input
 hdfs dfs -put static/corpus/* /input
 
 echo "******************** Calculating inverted index ********************"
-hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
+hadoop jar $HADOOP_HOME/hadoop-streaming.jar \
         -file mapper.py \
         -mapper "python mapper.py" \
         -file reducer.py  \
@@ -28,7 +28,7 @@ hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
 
 
 echo "******************** Download results ********************"
-hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
+hadoop jar $HADOOP_HOME/hadoop-streaming.jar \
                -Dmapred.reduce.tasks=1 \
                -input /output/ \
                -output /result \
@@ -42,7 +42,7 @@ hdfs dfs -mkdir /input2
 hdfs dfs -put pagerank.txt /input2
 
 echo "******************** Calculating pagerank ********************"
-hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
+hadoop jar $HADOOP_HOME/hadoop-streaming.jar \
         -file pagerank_mapper.py \
         -mapper "python pagerank_mapper.py" \
         -file pagerank_reducer.py  \
@@ -52,7 +52,7 @@ hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
 
 
 echo "******************** Download results ********************"
-hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
+hadoop jar $HADOOP_HOME/hadoop-streaming.jar \
                -Dmapred.reduce.tasks=1 \
                -input /output2/ \
                -output /result2 \
@@ -60,14 +60,14 @@ hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
                -reducer cat
 
 echo "******************** Calculating pagerank ********************"
-hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
+hadoop jar $HADOOP_HOME/hadoop-streaming.jar \
         -file rank_map.py \
         -mapper "python rank_map.py" \
         -input /result2/part-00000 \
         -output /output3
 
 
-hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
+hadoop jar $HADOOP_HOME/hadoop-streaming.jar \
                -Dmapred.reduce.tasks=1 \
                -input /output3/ \
                -output /result3 \
