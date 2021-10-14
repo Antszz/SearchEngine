@@ -34,34 +34,6 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-body2 {
-    font-family: var(--tipo-principal);
-  font-size: 100%;
-  line-height: 1.4em;
-  min-height: 100vh;
-  background-color: var(--blanco);
-  color: var(--negro);
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
-  font-smooth: always;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 * {
     margin: 0px;
     padding: 0px;
@@ -155,39 +127,7 @@ body2 {
             box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal), -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
   }
 
-  .acordeon .h2 {
-    margin: 0 0 1rem;
-    padding: 1rem;
-    color: var(--negro);
-    -webkit-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-    border-radius: 1rem;
-    background-color: var(--blanco);
-    -webkit-box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal), -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
-            box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal), -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
-    cursor: pointer;
-  }
-  .acordeon .h2:hover {
-    color: var(--negro);
-    -webkit-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-    border-radius: 1rem;
-    background-color: var(--blanco);
-    -webkit-box-shadow: 0 0 0 transparent, 0 0 0 transparent, inset 0.4rem 0.4rem 0.8rem var(--sombra-ppal), inset -0.4rem -0.4rem 0.8rem var(--sombra-sec);
-            box-shadow: 0 0 0 transparent, 0 0 0 transparent, inset 0.4rem 0.4rem 0.8rem var(--sombra-ppal), inset -0.4rem -0.4rem 0.8rem var(--sombra-sec);
-  }
 
-  .acordeon .contenido {
-    height: 0;
-    padding: 0rem;
-    overflow: hidden;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-  }
-
-  .acordeon .bloque.activo .contenido {
-    height: 4rem;
-  }
 
 /*====RESPONSIVE=====*/
 
