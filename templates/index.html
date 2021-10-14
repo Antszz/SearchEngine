@@ -14,46 +14,17 @@
 </head>
 <body>
     <main class="main">
-        <img src="/static/images/google.svg" alt="logo here" width="30%" class="logo">
-        <div class="box">
-            <input type="image" name="search-boton" src="/static/images/search.jpeg" alt="icon-search" class="icon-search">
-            <input type="text" name="search-text" class="tsearch" id="words">
+        <div class="buscar">
+            <input type="text" class="buscar_texto" placeholder="Escribe lo que buscas" id="words">
+            <a href="#" class="boton">
+                <i class="fas fa-search"></i>
+            </a>
+        </div>
+        <div id="pages" class="container acordeon">
+            <p style="font-size: 25px;" class="bloque results">Resultados:</p>
         </div>
 
-        <div id="pages" class="container">
-            <p>Resultados:</p>    
-        </div>
-
-    </main>    
-    <footer>
-        <div class="footer" >
-            <div class="follow">
-                <p>Follow us in</p>
-                <a href="https://facebook.com">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://twitter.com">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://linkedin.com">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>   
-             <p>Copyrigh &copy; 2020, Desing by Jose</p>
-        </div> 
-    </footer>
-    <script src="/static/js/app.js"></script>       
+    </main>
+    <script src="/static/js/app.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
