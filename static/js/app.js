@@ -1,11 +1,11 @@
 
 $(document).ready(function() {
-    
-    $('input[type=image]').click(function() {
+
+    $('a[class=boton]').click(function() {
 
         $('#pages div').empty();
 
-        $.ajax({ 
+        $.ajax({
                 url: '/search',
                 data: JSON.stringify({ "words" : $('#words').val() } ),
                 type: 'POST',
@@ -13,36 +13,36 @@ $(document).ready(function() {
                 dataType: "json"
             }).done(function(data) {
                 console.log("paginas :",data)
-            
+
                 var size = data.length
 
                 console.log(size)
 
                 if (size) {
-                    for(var i=0; i<size ;i++) {
-                        
-                        var div = $('<div> </div>', {});
+                    for(var i=0; i<size-2 ;i++) {
 
-                        var p = $('<p>'+data[i][1][1]+' - PageRank: '+data[i][1][0]+' - URL: <a href="/static/corpus/'+data[i][0]+'" target="_blank">'+data[i][0]+'</a></p>',{});
+                        var div = $('<div > </div>', {});
+
+                        var p = $('<p class="bloque"> Palabra: ' +data[i][1][1].toUpperCase()+ ', archivo: <a href="/static/corpus/'+data[i][0]+'" target="_blank">'+'Enlace'+'</a></p>',{});
 
                         div.append(p)
 
-                        div.appendTo($('#pages'));     
-                        
+                        div.appendTo($('#pages'));
+
                     }
                 }
                 else {
                     var div = $('<div> </div>', {});
-            
+
                     var p = $('<p> No se encontraron resultados!</p>',{});
 
                     div.append(p)
 
-                    div.appendTo($('#pages'));     
+                    div.appendTo($('#pages'));
                 }
-             
+
             }).fail(function() {
                 console.log('Failed');
-        });        
-    });    
+        });
+    });
 });
