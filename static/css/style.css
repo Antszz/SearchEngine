@@ -1,8 +1,65 @@
+@charset "UTF-8";
+/* Aquí definimos las Custom properties */
+:root {
+  --negro: #393939;
+  --blanco: #ececec;
+  --sombra-ppal: #c9c9c9;
+  --sombra-sec: #ffffff;
+  --borde-negro: #00000050;
+  --marcado: rgb(127, 195, 255);
+  /* Tipografía */
+  --tipo-principal: Helvetica, Arial, sans-serif;
+}
+
+/* Las adaptamos al modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --negro: #ececec;
+    --blanco: #303030;
+    --sombra-ppal: #242424;
+    --sombra-sec: #3c3c3c;
+    --borde-negro: #FFFFFF50;
+  }
+}
+
+
+
 body {
+    background-image: linear-gradient(rgba(0,0,0,0.5),
+    rgba(128, 57, 57, 0.5)),url(./fondo.jpg);
+    background-size: cover;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
+}
+
+body2 {
+    font-family: var(--tipo-principal);
+  font-size: 100%;
+  line-height: 1.4em;
+  min-height: 100vh;
+  background-color: var(--blanco);
+  color: var(--negro);
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 * {
@@ -11,91 +68,143 @@ body {
     box-sizing: border-box;
 }
 
-main {
-    flex: 1;
-}
-
-main .logo {
-    display: block;
-    margin: 0px auto;
-    margin-top: 107px;   
-}
-
-.box {
-    width: 100%;
-    position: relative; 
-    text-align: center;
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-}
-
-.box .tsearch {
-    display: block;
-    border: 3px solid #ddd;
-    color: rgba(20, 18, 18, 0.87);
-    font-size: 20px;
-    padding: 10px;
-    padding-left: 20px;
-    border-radius: 15px;
-    width: 50%;
-    outline: none;
-}
-
 .container {
     display: block;
     margin: 0px auto;
-    padding-bottom: 40px;
+    margin-bottom: 40px;
+}
+#pages {
+    position: absolute;
+    top: 20%;
+    display: flex;
+    justify-content: center;
+    left: 20%;
+    right: 20%;
+    align-items: center;
+    /* transform: translate(-50%,-50%); */
+    display: block;
+    /* margin: 0px auto; */
+    align-items: center;
 }
 
 #pages p {
     text-align: center;
-    padding-top: 40px;
+    padding-top: 20px;
     font-size: 20px;
+    color: black;
 }
 
-.box .icon-search {
-    width: 25px;
-    opacity: .4;
-    position: absolute;
-    top: 12px;
-    left: 14px;
-    outline: none;
-    margin: 0 auto;
-    margin-left: 70%;
-}
 
-#pages {
-    display: block;
-    margin: 0px auto;
-    align-items: center;
-}
-
-.follow {
+.buscar{
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top:12%;
+    transform: translate(-50%,-50%);
+    background:#069;
+    padding: 10px;
+    height: 80px;
+    border-radius: 40px;
 }
 
-.follow * {
-    margin: 5px;
-}
-
-.follow .fab {
+.buscar_texto{
+    border: none;
+    background:none;
+    outline: none;
     color: white;
-    font-size: 25px;
-    margin-top: 10px;
-}
-
-.footer {
-    background-color: black;
-    height: 100px;
-    margin: 10px 0px 0px;
-    text-align: center;
-}
-
-.footer p {
-    color: #fff;
     font-size: 20px;
-    padding-top: 10px;
+    float: left;
+    line-height: 60px;
+    transition: .3s;
+    width: 0;
+}
+
+.boton{
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+
+.acordeon {
+    width: 90%;
+    max-width: 25rem;
+    padding: 1rem;
+    color: var(--negro);
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    border-radius: 1rem;
+    background-color: var(--blanco);
+    -webkit-box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal), -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+            box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal), -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  }
+
+
+  .acordeon .bloque {
+    margin: 0 0 1rem;
+    padding: 0.5rem;
+    color: var(--negro);
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    border-radius: 1rem;
+    background-color: var(--blanco);
+    -webkit-box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal), -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+            box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal), -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  }
+
+  .acordeon .h2 {
+    margin: 0 0 1rem;
+    padding: 1rem;
+    color: var(--negro);
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    border-radius: 1rem;
+    background-color: var(--blanco);
+    -webkit-box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal), -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+            box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal), -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+    cursor: pointer;
+  }
+  .acordeon .h2:hover {
+    color: var(--negro);
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    border-radius: 1rem;
+    background-color: var(--blanco);
+    -webkit-box-shadow: 0 0 0 transparent, 0 0 0 transparent, inset 0.4rem 0.4rem 0.8rem var(--sombra-ppal), inset -0.4rem -0.4rem 0.8rem var(--sombra-sec);
+            box-shadow: 0 0 0 transparent, 0 0 0 transparent, inset 0.4rem 0.4rem 0.8rem var(--sombra-ppal), inset -0.4rem -0.4rem 0.8rem var(--sombra-sec);
+  }
+
+  .acordeon .contenido {
+    height: 0;
+    padding: 0rem;
+    overflow: hidden;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+
+  .acordeon .bloque.activo .contenido {
+    height: 4rem;
+  }
+
+/*====RESPONSIVE=====*/
+
+@media screen and (min-width:480px) {
+    .buscar:hover > .buscar_texto{
+        width: 200px;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .buscar:hover > .buscar_texto{
+        width: 300px;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .buscar:hover > .buscar_texto{
+        width: 500px;
+    }
 }
