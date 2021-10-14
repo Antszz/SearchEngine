@@ -11,18 +11,6 @@
   --tipo-principal: Helvetica, Arial, sans-serif;
 }
 
-/* Las adaptamos al modo oscuro */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --negro: #ececec;
-    --blanco: #303030;
-    --sombra-ppal: #242424;
-    --sombra-sec: #3c3c3c;
-    --borde-negro: #FFFFFF50;
-  }
-}
-
-
 
 body {
     background-image: linear-gradient(rgba(0,0,0,0.5),
